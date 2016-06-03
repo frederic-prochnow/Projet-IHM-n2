@@ -44,25 +44,45 @@ public class Interface_graphique implements MouseListener {
 		label1 = new JLabel("Nb de couleur voulues");
 		
 		Case c1 = new Case(255,0,0);
+		c1.setPreferredSize(new Dimension(110,100));
 		Case c2 = new Case(0,255,0);
+		c2.setPreferredSize(new Dimension(110,100));
 		Case c3 = new Case(0,0,255);
+		c3.setPreferredSize(new Dimension(110,100));
 		Case c4 = new Case(125,0,0);
+		c4.setPreferredSize(new Dimension(110,100));
 		Case c5 = new Case(0,125,0);
+		c5.setPreferredSize(new Dimension(110,100));
 		Case c6 = new Case(0,0,125);
+		c6.setPreferredSize(new Dimension(110,100));
 		Case c7 = new Case(190,0,0);
+		c7.setPreferredSize(new Dimension(110,100));
 		Case c8 = new Case(0,190,0);
+		c8.setPreferredSize(new Dimension(110,100));
 		Case c9 = new Case(0,0,190);
+		c9.setPreferredSize(new Dimension(110,100));
 		Case c10 = new Case(150,110,190);
+		c10.setPreferredSize(new Dimension(110,100));
 		Case c11 = new Case();
+		c11.setPreferredSize(new Dimension(110,100));
 		Case c12 = new Case();
+		c12.setPreferredSize(new Dimension(110,100));
 		Case c13 = new Case();
+		c13.setPreferredSize(new Dimension(110,100));
 		Case c14 = new Case();
+		c14.setPreferredSize(new Dimension(110,100));
 		Case c15 = new Case();
+		c15.setPreferredSize(new Dimension(110,100));
 		Case c16 = new Case();
+		c16.setPreferredSize(new Dimension(110,100));
 		Case c17 = new Case();
+		c17.setPreferredSize(new Dimension(110,100));
 		Case c18 = new Case();
+		c18.setPreferredSize(new Dimension(110,100));
 		Case c19 = new Case();
+		c19.setPreferredSize(new Dimension(110,100));
 		Case c20 = new Case();
+		c20.setPreferredSize(new Dimension(110,100));
 		
 		JPanel pane1;
 		JPanel pane2;
@@ -87,9 +107,9 @@ public class Interface_graphique implements MouseListener {
 		Automatique1.setPreferredSize(new Dimension(125,75));
 		JButton Manuel1 = new JButton("Manuel");
 		Manuel1.setPreferredSize(new Dimension(125,75));
-		NbCouleurs.addActionListener(new ActionListener());
+		/*NbCouleurs.addActionListener(new ActionListener());
 		Automatique1.addActionListener(new ActionListener());
-		Manuel1.addActionListener(new ActionListener());
+		Manuel1.addActionListener(new ActionListener());*/
 		
 		final JLabel labelRouge = new JLabel("" + Rouge.getValue());
 		final JLabel labelBleu = new JLabel("" + Bleu.getValue());
