@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -86,7 +87,10 @@ public class Interface_graphique implements MouseListener {
 		Automatique1.setPreferredSize(new Dimension(125,75));
 		JButton Manuel1 = new JButton("Manuel");
 		Manuel1.setPreferredSize(new Dimension(125,75));
-						
+		NbCouleurs.addActionListener(new ActionListener());
+		Automatique1.addActionListener(new ActionListener());
+		Manuel1.addActionListener(new ActionListener());
+		
 		final JLabel labelRouge = new JLabel("" + Rouge.getValue());
 		final JLabel labelBleu = new JLabel("" + Bleu.getValue());
 		final JLabel labelVert = new JLabel("" + Vert.getValue() +"");
