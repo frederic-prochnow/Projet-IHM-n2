@@ -5,7 +5,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
@@ -54,6 +57,9 @@ public class Interface_graphique implements MouseListener {
 	final JSlider Bleu = new JSlider(SwingConstants.HORIZONTAL,0,255,125);
 	final JSlider Vert = new JSlider(SwingConstants.HORIZONTAL,0,255,150);
 	Integer nbvoulues;
+	static JComboBox NbCouleurs;
+	JFrame fenetre;
+	Case c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20;
 	
 	public Interface_graphique() {	
 		JLabel label1;
@@ -64,79 +70,127 @@ public class Interface_graphique implements MouseListener {
 		String[] chiffre = new String[]{"1","2","3","4","5","6","7","8","9","10"};
 		JMenuItem ouvrir = new JMenuItem("ouvrir");
 		JMenuItem fermer = new JMenuItem("fermer");
-		JComboBox NbCouleurs = new JComboBox(chiffre);
-		nbvoulues = Integer.parseInt(NbCouleurs.getSelectedItem().toString());
-		JFrame fenetre = new JFrame("Projet IHM");
+		NbCouleurs = new JComboBox(chiffre);
+		//nbvoulues = Integer.parseInt(NbCouleurs.getSelectedItem().toString());
+		fenetre = new JFrame("Projet IHM");
 		JMenuBar menu;
 		label1 = new JLabel("Nb de couleur voulues");
 		GridLayout cases = new GridLayout(2,10);
 		
-		NbCouleurs.addActionListener(new ActionListener (){
-			
-		});
-		Case c1 = new Case(255,0,0);
+		c1 = new Case(255,0,0);
 		c1.setPreferredSize(new Dimension(60,60));
 		c1.setVisible(false);
-		Case c2 = new Case(0,255,0);
+		c2 = new Case(0,255,0);
 		c2.setPreferredSize(new Dimension(110,100));
 		c2.setVisible(false);
-		Case c3 = new Case(0,0,255);
+		c3 = new Case(0,0,255);
 		c3.setPreferredSize(new Dimension(110,100));
 		c3.setVisible(false);
-		Case c4 = new Case(125,0,0);
+		c4 = new Case(125,0,0);
 		c4.setPreferredSize(new Dimension(110,100));
 		c4.setVisible(false);
-		Case c5 = new Case(0,125,0);
+		c5 = new Case(0,125,0);
 		c5.setPreferredSize(new Dimension(110,100));
 		c5.setVisible(false);
-		Case c6 = new Case(0,0,125);
+		c6 = new Case(0,0,125);
 		c6.setPreferredSize(new Dimension(110,100));
 		c6.setVisible(false);
-		Case c7 = new Case(190,0,0);
+		c7 = new Case(190,0,0);
 		c7.setPreferredSize(new Dimension(110,100));
 		c7.setVisible(false);
-		Case c8 = new Case(0,190,0);
+		c8 = new Case(0,190,0);
 		c8.setPreferredSize(new Dimension(110,100));
 		c8.setVisible(false);
-		Case c9 = new Case(0,0,190);
+		c9 = new Case(0,0,190);
 		c9.setPreferredSize(new Dimension(110,100));
 		c9.setVisible(false);
-		Case c10 = new Case(150,110,190);
+		c10 = new Case(150,110,190);
 		c10.setPreferredSize(new Dimension(110,100));
 		c10.setVisible(false);
-		Case c11 = new Case();
+		c11 = new Case(84,96,96);
 		c11.setPreferredSize(new Dimension(110,100));
 		c11.setVisible(false);
-		Case c12 = new Case();
+		c12 = new Case(96,84,96);
 		c12.setPreferredSize(new Dimension(110,100));
 		c12.setVisible(false);
-		Case c13 = new Case();
+		c13 = new Case(96,96,84);
 		c13.setPreferredSize(new Dimension(110,100));
 		c13.setVisible(false);
-		Case c14 = new Case();
+		c14 = new Case(90,96,96);
 		c14.setPreferredSize(new Dimension(110,100));
 		c14.setVisible(false);
-		Case c15 = new Case();
+		c15 = new Case(96,90,96);
 		c15.setPreferredSize(new Dimension(110,100));
 		c15.setVisible(false);
-		Case c16 = new Case();
+		c16 = new Case(96,96,90);
 		c16.setPreferredSize(new Dimension(110,100));
 		c16.setVisible(false);
-		Case c17 = new Case();
+		c17 = new Case(87,96,96);
 		c17.setPreferredSize(new Dimension(110,100));
 		c17.setVisible(false);
-		Case c18 = new Case();
+		c18 = new Case(96,87,96);
 		c18.setPreferredSize(new Dimension(110,100));
 		c18.setVisible(false);
-		Case c19 = new Case();
+		c19 = new Case(96,96,87);
 		c19.setPreferredSize(new Dimension(110,100));
 		c19.setVisible(false);
-		Case c20 = new Case();
+		c20 = new Case(89,91,87);
 		c20.setPreferredSize(new Dimension(110,100));
 		c20.setVisible(false);
+		nbvoulues = Integer.parseInt(Interface_graphique.NbCouleurs.getSelectedItem().toString());
+		//nbvoulues = 10;
+		/*NbCouleurs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e){
+				nbvoulues = Integer.parseInt(Interface_graphique.NbCouleurs.getSelectedItem().toString());
+			}
+		});*/
+		NbCouleurs.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent e) 
+			   { 
+				 nbvoulues = Integer.parseInt(Interface_graphique.NbCouleurs.getSelectedItem().toString());
+				 if(1<=nbvoulues){
+						c1.setVisible(true);
+						c11.setVisible(true);
+					}
+					if(2<=nbvoulues){
+						c2.setVisible(true);
+						c12.setVisible(true);
+					}
+					if(3<=nbvoulues){
+						c3.setVisible(true);
+						c13.setVisible(true);
+					}
+					if(4<=nbvoulues){
+						c4.setVisible(true);
+						c14.setVisible(true);
+					}
+					if(5<=nbvoulues){
+						c5.setVisible(true);
+						c15.setVisible(true);
+					}
+					if(6<=nbvoulues){
+						c6.setVisible(true);
+						c16.setVisible(true);
+					}
+					if(7<=nbvoulues){
+						c7.setVisible(true);
+						c17.setVisible(true);
+					}
+					if(8<=nbvoulues){
+						c8.setVisible(true);
+						c18.setVisible(true);
+					}
+					if(9<=nbvoulues){
+						c9.setVisible(true);
+						c19.setVisible(true);
+					}
+					if(10<=nbvoulues){
+						c10.setVisible(true);
+						c20.setVisible(true);
+					}
+			 } 
+		});
 		
-		fenetre.revalidate(); 
-		fenetre.repaint(); 
 		if(1<=nbvoulues){
 			c1.setVisible(true);
 			c11.setVisible(true);
@@ -177,6 +231,7 @@ public class Interface_graphique implements MouseListener {
 			c10.setVisible(true);
 			c20.setVisible(true);
 		}
+		
 		JPanel pane1;
 		JPanel pane2;
 		JPanel pane3;

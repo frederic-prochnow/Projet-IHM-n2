@@ -46,7 +46,7 @@ public class CouleurGris {
 	g.setColor(new Color(Rouge.getValue(),Vert.getValue(),Bleu.getValue()));
 	g.drawRect(50, 50, 50, 50);
 }*/
-	
+	/*
 	JPanel slider = new JPanel();
 	JPanel labelSlider = new JPanel();
 	GridLayout sliderLayout = new GridLayout(3, 1);
@@ -88,4 +88,6 @@ public class CouleurGris {
 			
 	pane2.add(slider);
 	pane2.add(labelSlider);
+	*/
+	
 }
