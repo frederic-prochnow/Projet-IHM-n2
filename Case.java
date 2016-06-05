@@ -13,7 +13,6 @@ public class Case extends JPanel {
 
 	private static final long serialVersionUID = -7407558281977901559L;
 	private int r, v, b;
-	private int h , w;
 	private String hexa = "r";
 	private int gris;
 	private boolean visible;
@@ -69,16 +68,6 @@ public class Case extends JPanel {
 		this.gris = (int) (0.3 * r + 0.59 * v + 0.11 * b);
 	}
 	
-	public Case(int r,int v,int b,int h, int w){
-		this.r = r;
-		this.v = v;
-		this.b = b;
-		this.h = h;
-		this.w = w;
-		this.hexa = Convert(r, v, b);
-		this.gris = (int) (0.3 * r + 0.59 * v + 0.11 * b);
-	}
-
 	public void paintComponent(Graphics g) {
 		super.paintComponents(g);
 		if (visible) {

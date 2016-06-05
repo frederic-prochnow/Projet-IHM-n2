@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -42,13 +43,16 @@ public class Interface_graphique implements MouseListener {
 		JFrame fenetre = new JFrame("Projet IHM");
 		JMenuBar menu;
 		label1 = new JLabel("Nb de couleur voulues");
+		GridLayout cases = new GridLayout(2,10);
 		
 		Case c1 = new Case(255,0,0);
-		c1.setPreferredSize(new Dimension(110,100));
+		c1.setPreferredSize(new Dimension(60,60));
 		Case c2 = new Case(0,255,0);
 		c2.setPreferredSize(new Dimension(110,100));
+		c2.setVisible(true);
 		Case c3 = new Case(0,0,255);
 		c3.setPreferredSize(new Dimension(110,100));
+		c3.setVisible(true);
 		Case c4 = new Case(125,0,0);
 		c4.setPreferredSize(new Dimension(110,100));
 		Case c5 = new Case(0,125,0);
@@ -164,6 +168,8 @@ public class Interface_graphique implements MouseListener {
 		pane4.add(slider2);pane4.add(labelBleu);
 		pane4.add(slider3);pane4.add(labelVert);
 				
+		
+		pane3.setLayout(cases);
 		pane3.add(c1);
 		pane3.add(c2);
 		pane3.add(c3);
@@ -198,7 +204,7 @@ public class Interface_graphique implements MouseListener {
 		
 		
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		fenetre.setPreferredSize(new Dimension(1250,1000));
+		fenetre.setPreferredSize(new Dimension(1250,900));
 		fenetre.setLocation(250,250);
 		fenetre.setResizable(true);
 		fenetre.pack();
