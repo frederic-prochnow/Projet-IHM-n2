@@ -28,10 +28,35 @@ import javax.swing.event.ChangeListener;
 import affichage.Case;
 
 public class Interface_graphique implements MouseListener {
+	/**
+	 * @return le rouge
+	 */
+	public JSlider getRouge() {
+		return Rouge;
+	}
+
+
+	/**
+	 * @return le bleu
+	 */
+	public JSlider getBleu() {
+		return Bleu;
+	}
+
+
+	/**
+	 * @return le vert
+	 */
+	public JSlider getVert() {
+		return Vert;
+	}
+
+
 	final JSlider Rouge = new JSlider(SwingConstants.HORIZONTAL,0,255,100);
 	final JSlider Bleu = new JSlider(SwingConstants.HORIZONTAL,0,255,125);
 	final JSlider Vert = new JSlider(SwingConstants.HORIZONTAL,0,255,150);
 
+	
 	public Interface_graphique() {	
 		JLabel label1;
 		JLabel slider1;

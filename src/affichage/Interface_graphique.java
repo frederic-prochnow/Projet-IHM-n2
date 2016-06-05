@@ -26,10 +26,35 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 public class Interface_graphique implements MouseListener {
+	/**
+	 * @return le rouge
+	 */
+	public JSlider getRouge() {
+		return Rouge;
+	}
+
+
+	/**
+	 * @return le bleu
+	 */
+	public JSlider getBleu() {
+		return Bleu;
+	}
+
+
+	/**
+	 * @return le vert
+	 */
+	public JSlider getVert() {
+		return Vert;
+	}
+
+
 	final JSlider Rouge = new JSlider(SwingConstants.HORIZONTAL,0,255,100);
 	final JSlider Bleu = new JSlider(SwingConstants.HORIZONTAL,0,255,125);
 	final JSlider Vert = new JSlider(SwingConstants.HORIZONTAL,0,255,150);
-
+	Integer nbvoulues;
+	
 	public Interface_graphique() {	
 		JLabel label1;
 		JLabel slider1;
@@ -40,54 +65,118 @@ public class Interface_graphique implements MouseListener {
 		JMenuItem ouvrir = new JMenuItem("ouvrir");
 		JMenuItem fermer = new JMenuItem("fermer");
 		JComboBox NbCouleurs = new JComboBox(chiffre);
+		nbvoulues = Integer.parseInt(NbCouleurs.getSelectedItem().toString());
 		JFrame fenetre = new JFrame("Projet IHM");
 		JMenuBar menu;
 		label1 = new JLabel("Nb de couleur voulues");
 		GridLayout cases = new GridLayout(2,10);
 		
+		NbCouleurs.addActionListener(new ActionListener (){
+			
+		});
 		Case c1 = new Case(255,0,0);
 		c1.setPreferredSize(new Dimension(60,60));
+		c1.setVisible(false);
 		Case c2 = new Case(0,255,0);
 		c2.setPreferredSize(new Dimension(110,100));
-		c2.setVisible(true);
+		c2.setVisible(false);
 		Case c3 = new Case(0,0,255);
 		c3.setPreferredSize(new Dimension(110,100));
-		c3.setVisible(true);
+		c3.setVisible(false);
 		Case c4 = new Case(125,0,0);
 		c4.setPreferredSize(new Dimension(110,100));
+		c4.setVisible(false);
 		Case c5 = new Case(0,125,0);
 		c5.setPreferredSize(new Dimension(110,100));
+		c5.setVisible(false);
 		Case c6 = new Case(0,0,125);
 		c6.setPreferredSize(new Dimension(110,100));
+		c6.setVisible(false);
 		Case c7 = new Case(190,0,0);
 		c7.setPreferredSize(new Dimension(110,100));
+		c7.setVisible(false);
 		Case c8 = new Case(0,190,0);
 		c8.setPreferredSize(new Dimension(110,100));
+		c8.setVisible(false);
 		Case c9 = new Case(0,0,190);
 		c9.setPreferredSize(new Dimension(110,100));
+		c9.setVisible(false);
 		Case c10 = new Case(150,110,190);
 		c10.setPreferredSize(new Dimension(110,100));
+		c10.setVisible(false);
 		Case c11 = new Case();
 		c11.setPreferredSize(new Dimension(110,100));
+		c11.setVisible(false);
 		Case c12 = new Case();
 		c12.setPreferredSize(new Dimension(110,100));
+		c12.setVisible(false);
 		Case c13 = new Case();
 		c13.setPreferredSize(new Dimension(110,100));
+		c13.setVisible(false);
 		Case c14 = new Case();
 		c14.setPreferredSize(new Dimension(110,100));
+		c14.setVisible(false);
 		Case c15 = new Case();
 		c15.setPreferredSize(new Dimension(110,100));
+		c15.setVisible(false);
 		Case c16 = new Case();
 		c16.setPreferredSize(new Dimension(110,100));
+		c16.setVisible(false);
 		Case c17 = new Case();
 		c17.setPreferredSize(new Dimension(110,100));
+		c17.setVisible(false);
 		Case c18 = new Case();
 		c18.setPreferredSize(new Dimension(110,100));
+		c18.setVisible(false);
 		Case c19 = new Case();
 		c19.setPreferredSize(new Dimension(110,100));
+		c19.setVisible(false);
 		Case c20 = new Case();
 		c20.setPreferredSize(new Dimension(110,100));
+		c20.setVisible(false);
 		
+		fenetre.revalidate(); 
+		fenetre.repaint(); 
+		if(1<=nbvoulues){
+			c1.setVisible(true);
+			c11.setVisible(true);
+		}
+		if(2<=nbvoulues){
+			c2.setVisible(true);
+			c12.setVisible(true);
+		}
+		if(3<=nbvoulues){
+			c3.setVisible(true);
+			c13.setVisible(true);
+		}
+		if(4<=nbvoulues){
+			c4.setVisible(true);
+			c14.setVisible(true);
+		}
+		if(5<=nbvoulues){
+			c5.setVisible(true);
+			c15.setVisible(true);
+		}
+		if(6<=nbvoulues){
+			c6.setVisible(true);
+			c16.setVisible(true);
+		}
+		if(7<=nbvoulues){
+			c7.setVisible(true);
+			c17.setVisible(true);
+		}
+		if(8<=nbvoulues){
+			c8.setVisible(true);
+			c18.setVisible(true);
+		}
+		if(9<=nbvoulues){
+			c9.setVisible(true);
+			c19.setVisible(true);
+		}
+		if(10<=nbvoulues){
+			c10.setVisible(true);
+			c20.setVisible(true);
+		}
 		JPanel pane1;
 		JPanel pane2;
 		JPanel pane3;

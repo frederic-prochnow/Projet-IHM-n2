@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import Interface_graphique;
+
 public class CouleurGris {
 	/*public void paint (Graphics g){	
 	int[] abcisse = new int[]{245,275,470,500};
@@ -50,9 +52,9 @@ public class CouleurGris {
 	GridLayout sliderLayout = new GridLayout(3, 1);
 	slider.setLayout(sliderLayout);
 	labelSlider.setLayout(sliderLayout);
-	final JLabel labelRouge = new JLabel("" + Rouge.getValue());
-	final JLabel labelVert = new JLabel("" + Vert.getValue());
-	final JLabel labelBleu = new JLabel("" + Bleu.getValue());
+	final JLabel labelRouge = new JLabel("" + getRouge().getValue());
+	final JLabel labelVert = new JLabel("" + getVert().getValue());
+	final JLabel labelBleu = new JLabel("" + getBleu().getValue());
 	
 	Dimension sizeSlider = slider.getPreferredSize();
 	slider.setBounds(new Dimension().width - sizeSlider.width - 50, 15,
