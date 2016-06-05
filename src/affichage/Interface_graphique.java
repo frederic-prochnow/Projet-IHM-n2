@@ -3,160 +3,213 @@ package affichage;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Frame;
 import java.awt.Graphics;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.Paint;
-import java.awt.Window;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
-import javafx.geometry.HorizontalDirection;
-
-import javax.swing.Action;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JComponent;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-import com.sun.corba.se.impl.orb.NormalDataCollector;
-
-public class Interface_graphique implements MouseListener{
+public class Interface_graphique implements MouseListener {
+	final JSlider Rouge = new JSlider(SwingConstants.HORIZONTAL,0,255,100);
+	final JSlider Bleu = new JSlider(SwingConstants.HORIZONTAL,0,255,125);
+	final JSlider Vert = new JSlider(SwingConstants.HORIZONTAL,0,255,150);
 
 	public Interface_graphique() {	
-		Action label;
+		JLabel label1;
+		JLabel slider1;
+		JLabel slider2;
+		JLabel slider3;
+		ArrayList<JMenuItem> item = new ArrayList<>();
+		String[] chiffre = new String[]{"1","2","3","4","5","6","7","8","9","10"};
+		JMenuItem ouvrir = new JMenuItem("ouvrir");
+		JMenuItem fermer = new JMenuItem("fermer");
+		JComboBox NbCouleurs = new JComboBox(chiffre);
 		JFrame fenetre = new JFrame("Projet IHM");
-		JButton Automatique = new JButton("Automatique");
-		JButton Manuel = new JButton("Manuel");	
-		GridLayout casebouton = new GridLayout(2,6);
-		fenetre.setLayout(casebouton);
-
-		JPanel Automatique1 = new JPanel();
-		Automatique1.setPreferredSize(new Dimension(60, 40));  
+		JMenuBar menu;
+		label1 = new JLabel("Nb de couleur voulues");
+		GridLayout cases = new GridLayout(2,10);
 		
-		JPanel un = new JPanel();
-		un.setPreferredSize(new Dimension(60, 40));
+		Case c1 = new Case(255,0,0);
+		c1.setPreferredSize(new Dimension(60,60));
+		Case c2 = new Case(0,255,0);
+		c2.setPreferredSize(new Dimension(110,100));
+		c2.setVisible(true);
+		Case c3 = new Case(0,0,255);
+		c3.setPreferredSize(new Dimension(110,100));
+		c3.setVisible(true);
+		Case c4 = new Case(125,0,0);
+		c4.setPreferredSize(new Dimension(110,100));
+		Case c5 = new Case(0,125,0);
+		c5.setPreferredSize(new Dimension(110,100));
+		Case c6 = new Case(0,0,125);
+		c6.setPreferredSize(new Dimension(110,100));
+		Case c7 = new Case(190,0,0);
+		c7.setPreferredSize(new Dimension(110,100));
+		Case c8 = new Case(0,190,0);
+		c8.setPreferredSize(new Dimension(110,100));
+		Case c9 = new Case(0,0,190);
+		c9.setPreferredSize(new Dimension(110,100));
+		Case c10 = new Case(150,110,190);
+		c10.setPreferredSize(new Dimension(110,100));
+		Case c11 = new Case();
+		c11.setPreferredSize(new Dimension(110,100));
+		Case c12 = new Case();
+		c12.setPreferredSize(new Dimension(110,100));
+		Case c13 = new Case();
+		c13.setPreferredSize(new Dimension(110,100));
+		Case c14 = new Case();
+		c14.setPreferredSize(new Dimension(110,100));
+		Case c15 = new Case();
+		c15.setPreferredSize(new Dimension(110,100));
+		Case c16 = new Case();
+		c16.setPreferredSize(new Dimension(110,100));
+		Case c17 = new Case();
+		c17.setPreferredSize(new Dimension(110,100));
+		Case c18 = new Case();
+		c18.setPreferredSize(new Dimension(110,100));
+		Case c19 = new Case();
+		c19.setPreferredSize(new Dimension(110,100));
+		Case c20 = new Case();
+		c20.setPreferredSize(new Dimension(110,100));
 		
-		JPanel deux = new JPanel();
-		deux.setPreferredSize(new Dimension(60, 40));
+		JPanel pane1;
+		JPanel pane2;
+		JPanel pane3;
+		JPanel pane4;
 		
-		JPanel trois = new JPanel();
-		trois.setPreferredSize(new Dimension(60, 40));
+		JMenu Fichier = new JMenu("Fichier");
+		JMenu Aide = new JMenu("Aide");
+		pane1 = new JPanel();
+		pane2 = new JPanel();
+		pane3 = new JPanel();
+		pane4 = new JPanel();
+		menu = new JMenuBar();
 		
-		JPanel quatre = new JPanel();
-		quatre.setPreferredSize(new Dimension(60, 40));
+		Fichier.add(ouvrir);
+		Fichier.add(fermer);
+		menu.add(Fichier);
+		menu.add(Aide);
+		fenetre.setLayout(new BorderLayout());
+
+		JButton Automatique1 = new JButton("Automatique");
+		Automatique1.setPreferredSize(new Dimension(125,75));
+		JButton Manuel1 = new JButton("Manuel");
+		Manuel1.setPreferredSize(new Dimension(125,75));
+		/*NbCouleurs.addActionListener(new ActionListener());
+		Automatique1.addActionListener(new ActionListener());
+		Manuel1.addActionListener(new ActionListener());*/
 		
-		JPanel cinq = new JPanel();
-		cinq.setPreferredSize(new Dimension(60, 40));
+		final JLabel labelRouge = new JLabel("" + Rouge.getValue());
+		final JLabel labelBleu = new JLabel("" + Bleu.getValue());
+		final JLabel labelVert = new JLabel("" + Vert.getValue() +"");
+		slider1 = new JLabel("Rouge :" );
+		slider2 = new JLabel("Bleu :" );
+		slider3 = new JLabel("Vert :" );
 		
-		JPanel Manuel1 = new JPanel();
-		Manuel1.setPreferredSize(new Dimension(60, 40));
+		Rouge.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent arg0) {
+				labelRouge.setText("" + Rouge.getValue());
+			}
+		});
 		
-		JPanel six = new JPanel();
-		six.setPreferredSize(new Dimension(60, 40));
+		Vert.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent arg0) {
+				labelVert.setText("" + Vert.getValue());
+			}
+		});
 		
-		JPanel sept = new JPanel();
-		sept.setPreferredSize(new Dimension(60, 40));
+		Bleu.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent arg0) {
+				labelBleu.setText("" + Bleu.getValue());
+			}
+		});
 		
-		JPanel huit = new JPanel();
-		huit.setPreferredSize(new Dimension(60, 40));
 		
-		JPanel neuf = new JPanel();
-		neuf.setPreferredSize(new Dimension(60, 40));
+		pane1.setPreferredSize(new Dimension(500,300));
+		pane2.setPreferredSize(new Dimension(400,300));
+		pane3.setPreferredSize(new Dimension(1250,700));
+		pane4.setPreferredSize(new Dimension(200,150));
 		
-		JPanel dix = new JPanel();
-		dix.setPreferredSize(new Dimension(60, 40));
-
-		JPanel content = new JPanel();
-	    content.setPreferredSize(new Dimension(300, 120));
-	    content.setBackground(Color.WHITE);
-	    
-	    content.setLayout(new GridBagLayout());
-	    GridBagConstraints gbc = new GridBagConstraints();
-	    gbc.gridx = 0;
-	    gbc.gridy = 0;
 		
-		JSlider Rouge = new JSlider(SwingConstants.HORIZONTAL,0,255,100);
-		JSlider Bleu = new JSlider(SwingConstants.HORIZONTAL,0,255,125);
-		JSlider Vert = new JSlider(SwingConstants.HORIZONTAL,0,255,150);
-
-		fenetre.add(Automatique1, BorderLayout.NORTH);
-		fenetre.add(un,BorderLayout.NORTH);
-		fenetre.add(deux,BorderLayout.NORTH);
-		fenetre.add(trois, BorderLayout.NORTH);
-		fenetre.add(quatre, BorderLayout.NORTH);
-		fenetre.add(cinq, BorderLayout.NORTH);
-		fenetre.add(Manuel1,BorderLayout.NORTH);
-		fenetre.add(six);
-		fenetre.add(sept);
-		fenetre.add(huit);
-		fenetre.add(neuf);
-		fenetre.add(dix);
-
-		fenetre.add(Rouge, BorderLayout.EAST);
-		fenetre.add(Bleu, BorderLayout.EAST);
-		fenetre.add(Vert, BorderLayout.EAST);
-
-		/*public void paint (Graphics g){	
-			int[] abcisse = new int[]{245,275,470,500};
-			int[] ordonnée = new int[]{410,475,475,410};
-
-			g.setColor(new Color(Rouge.getValue(),Vert.getValue(),Bleu.getValue()));
-			g.drawRect(50, 50, 50, 50);
-
-			g.setColor(new Color(Rouge.getValue(),Vert.getValue(),Bleu.getValue()));
-			g.drawRect(50, 50, 50, 50);
-
-			g.setColor(new Color(Rouge.getValue(),Vert.getValue(),Bleu.getValue()));
-			g.drawRect(50, 50, 50, 50);
-
-			g.setColor(new Color(Rouge.getValue(),Vert.getValue(),Bleu.getValue()));
-			g.drawRect(50, 50, 50, 50);
-
-			g.setColor(new Color(Rouge.getValue(),Vert.getValue(),Bleu.getValue()));
-			g.drawRect(50, 50, 50, 50);
-
-			g.setColor(new Color(Rouge.getValue(),Vert.getValue(),Bleu.getValue()));
-			g.drawRect(50, 50, 50, 50);
-
-			g.setColor(new Color(Rouge.getValue(),Vert.getValue(),Bleu.getValue()));
-			g.drawRect(50, 50, 50, 50);
-
-			g.setColor(new Color(Rouge.getValue(),Vert.getValue(),Bleu.getValue()));
-			g.drawRect(50, 50, 50, 50);
-
-			g.setColor(new Color(Rouge.getValue(),Vert.getValue(),Bleu.getValue()));
-			g.drawRect(50, 50, 50, 50);
-
-			g.setColor(new Color(Rouge.getValue(),Vert.getValue(),Bleu.getValue()));
-			g.drawRect(50, 50, 50, 50);
-		}*/
-
-
+		pane1.setAlignmentX(0);
+		pane1.setAlignmentY(0);
+		pane1.add(label1,BorderLayout.WEST);
+		pane1.add(NbCouleurs);
+		pane1.add(Automatique1);
+		pane1.add(Manuel1);
+		
+		pane2.setAlignmentX(500);
+		pane2.setAlignmentY(0);
+		pane2.setLayout(new BoxLayout(pane2,BoxLayout.Y_AXIS));
+		pane2.add(Box.createVerticalStrut(20));
+		pane2.add(Rouge);
+		pane2.add(Bleu);
+		pane2.add(Vert);
+		
+		pane4.setAlignmentX(1000);
+		pane4.setAlignmentY(0);
+		pane4.add(slider1);pane4.add(labelRouge);
+		pane4.add(slider2);pane4.add(labelBleu);
+		pane4.add(slider3);pane4.add(labelVert);
+				
+		
+		pane3.setLayout(cases);
+		pane3.add(c1);
+		pane3.add(c2);
+		pane3.add(c3);
+		pane3.add(c4);
+		pane3.add(c5);
+		pane3.add(c6);
+		pane3.add(c7);
+		pane3.add(c8);
+		pane3.add(c9);
+		pane3.add(c10);
+		
+		pane3.add(c11);
+		pane3.add(c12);
+		pane3.add(c13);
+		pane3.add(c14);
+		pane3.add(c15);
+		pane3.add(c16);
+		pane3.add(c17);
+		pane3.add(c18);
+		pane3.add(c19);
+		pane3.add(c20);
+		
+		c11.setAlignmentX(10);
+		c11.setAlignmentY(50);
+		
+		
+		fenetre.add(menu,BorderLayout.NORTH);
+		fenetre.add(pane1,BorderLayout.WEST);
+		fenetre.add(pane2,BorderLayout.CENTER);
+		fenetre.add(pane4,BorderLayout.EAST);
+		fenetre.add(pane3,BorderLayout.SOUTH);
+		
+		
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		fenetre.setPreferredSize(new Dimension(500,500));
+		fenetre.setPreferredSize(new Dimension(1250,900));
 		fenetre.setLocation(250,250);
 		fenetre.setResizable(true);
 		fenetre.pack();
 		fenetre.setVisible(true);
 
-	}
-
-
-	public void mouseClicked(MouseEvent e) {
-		int clic = e.getButton();
-		if (clic == MouseEvent.BUTTON1){
-			if(un.buttonPressed()){
-
-			}
-		}
 	}
 
 
@@ -181,6 +234,13 @@ public class Interface_graphique implements MouseListener{
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 
+	}
+
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

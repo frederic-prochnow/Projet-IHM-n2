@@ -25,6 +25,8 @@ import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import affichage.Case;
+
 public class Interface_graphique implements MouseListener {
 	final JSlider Rouge = new JSlider(SwingConstants.HORIZONTAL,0,255,100);
 	final JSlider Bleu = new JSlider(SwingConstants.HORIZONTAL,0,255,125);
