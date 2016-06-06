@@ -305,11 +305,24 @@ public class Interface_graphique implements MouseListener {
 		if(manuelb == true){
 			b1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					Rouge.setValue(c1.getR());
-					Vert.setValue(c1.getV());
-					Bleu.setValue(c1.getB());
+					Rouge.addChangeListener(new ChangeListener() {
+						public void stateChanged(ChangeEvent arg0) {
+							Rouge.setValue(c1.getR());
+						}
+					});
+					Vert.addChangeListener(new ChangeListener() {
+						public void stateChanged(ChangeEvent arg0) {
+							Vert.setValue(c1.getR());
+						}
+					});
+					Bleu.addChangeListener(new ChangeListener() {
+						public void stateChanged(ChangeEvent arg0) {
+							Bleu.setValue(c1.getR());
+						}
+					});
 					fenetre.revalidate();
 					fenetre.repaint();
+					c1.setCase(Rouge.getValue(), Vert.getValue(), Bleu.getValue());
 				}
 			});
 		}
