@@ -67,7 +67,7 @@ public class Interface_graphique implements MouseListener {
 		JLabel slider2;
 		JLabel slider3;
 		ArrayList<JMenuItem> item = new ArrayList<>();
-		String[] chiffre = new String[]{"1","2","3","4","5","6","7","8","9","10"};
+		String[] chiffre = new String[]{"10","9","8","7","6","5","4","3","2","1"};
 		JMenuItem ouvrir = new JMenuItem("ouvrir");
 		JMenuItem fermer = new JMenuItem("fermer");
 		NbCouleurs = new JComboBox(chiffre);
@@ -148,6 +148,26 @@ public class Interface_graphique implements MouseListener {
 			public void itemStateChanged(ItemEvent e) 
 			   { 
 				 nbvoulues = Integer.parseInt(Interface_graphique.NbCouleurs.getSelectedItem().toString());
+				 c1.setVisible(false);
+				 c2.setVisible(false);
+				 c3.setVisible(false);
+				 c4.setVisible(false);
+				 c5.setVisible(false);
+				 c6.setVisible(false);
+				 c7.setVisible(false);
+				 c8.setVisible(false);
+				 c9.setVisible(false);
+				 c10.setVisible(false);
+				 c11.setVisible(false);
+				 c12.setVisible(false);
+				 c13.setVisible(false);
+				 c14.setVisible(false);
+				 c15.setVisible(false);
+				 c16.setVisible(false);
+				 c17.setVisible(false);
+				 c18.setVisible(false);
+				 c19.setVisible(false);
+				 c20.setVisible(false);
 				 if(1<=nbvoulues){
 						c1.setVisible(true);
 						c11.setVisible(true);
@@ -188,6 +208,8 @@ public class Interface_graphique implements MouseListener {
 						c10.setVisible(true);
 						c20.setVisible(true);
 					}
+					fenetre.revalidate();
+					fenetre.repaint();
 			 } 
 		});
 		
