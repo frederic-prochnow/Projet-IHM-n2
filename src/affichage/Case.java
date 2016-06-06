@@ -9,6 +9,48 @@ import javax.swing.JPanel;
 
 public class Case extends JPanel {
 	
+	/**
+	 * @return le r
+	 */
+	public int getR() {
+		return r;
+	}
+
+	/**
+	 * @param r le r à définir
+	 */
+	public void setR(int r) {
+		this.r = r;
+	}
+
+	/**
+	 * @return le v
+	 */
+	public int getV() {
+		return v;
+	}
+
+	/**
+	 * @param v le v à définir
+	 */
+	public void setV(int v) {
+		this.v = v;
+	}
+
+	/**
+	 * @return le b
+	 */
+	public int getB() {
+		return b;
+	}
+
+	/**
+	 * @param b le b à définir
+	 */
+	public void setB(int b) {
+		this.b = b;
+	}
+
 	public static int cel;
 
 	private static final long serialVersionUID = -7407558281977901559L;
@@ -44,6 +86,11 @@ public class Case extends JPanel {
 		this.gris = (int) (0.3 * r + 0.59 * v + 0.11 * b);
 	}
 	
+	public void setCase(int r,int v,int b) {
+		this.r = r;
+		this.v = v;
+		this.b = b;
+	}
 	public void paintComponent(Graphics g) {
 		super.paintComponents(g);
 		if (visible) {

@@ -37,6 +37,8 @@ public class Interface_graphique implements MouseListener {
 	static JComboBox NbCouleurs;
 	JFrame fenetre;
 	Case c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20;
+	JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b10;
+	Boolean manuelb =false;
 	
 	/**
 	 * @return le rouge
@@ -147,7 +149,7 @@ public class Interface_graphique implements MouseListener {
 		GridLayout cases = new GridLayout(2,10);
 		
 		c1 = new Case(255,0,0);
-		c1.setPreferredSize(new Dimension(60,60));
+		c1.setPreferredSize(new Dimension(110,100));
 		c1.setVisible(false);
 		c2 = new Case(0,255,0);
 		c2.setPreferredSize(new Dimension(110,100));
@@ -232,18 +234,49 @@ public class Interface_graphique implements MouseListener {
 		menu.add(Fichier);
 		menu.add(Aide);
 		fenetre.setLayout(new BorderLayout());
-
+		
+		b1 = new JButton("Couleur 1");
+		b1.setPreferredSize(new Dimension(100,50));
+		b2 = new JButton("Couleur 2");
+		b2.setPreferredSize(new Dimension(100,50));
+		b3 = new JButton("Couleur 3");
+		b3.setPreferredSize(new Dimension(100,50));
+		b4 = new JButton("Couleur 4");
+		b4.setPreferredSize(new Dimension(100,50));
+		b5 = new JButton("Couleur 5");
+		b5.setPreferredSize(new Dimension(100,50));
+		b6 = new JButton("Couleur 6");
+		b6.setPreferredSize(new Dimension(100,50));
+		b7 = new JButton("Couleur 7");
+		b7.setPreferredSize(new Dimension(100,50));
+		b8 = new JButton("Couleur 8");
+		b8.setPreferredSize(new Dimension(100,50));
+		b9 = new JButton("Couleur 9");
+		b9.setPreferredSize(new Dimension(100,50));
+		b10 = new JButton("Couleur 10");
+		b10.setPreferredSize(new Dimension(100,50));
+		
 		JButton Automatique1 = new JButton("Automatique");
 		Automatique1.setPreferredSize(new Dimension(125,75));
 		Automatique1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				rafraichisement_couleur();
+				if(manuelb == true) {
+					manuelb = false;
+				}
 			}
 		});
 		JButton Manuel1 = new JButton("Manuel");
 		Manuel1.setPreferredSize(new Dimension(125,75));
-		
-		
+		Manuel1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				manuelb = true;
+				if(manuelb == true) {
+					System.out.println("ok");
+				}
+				rafraichisement_couleur();
+			}
+		});
 		final JLabel labelRouge = new JLabel("" + Rouge.getValue());
 		final JLabel labelBleu = new JLabel("" + Bleu.getValue());
 		final JLabel labelVert = new JLabel("" + Vert.getValue() +"");
@@ -268,6 +301,18 @@ public class Interface_graphique implements MouseListener {
 				labelBleu.setText("" + Bleu.getValue());
 			}
 		});
+		
+		if(manuelb == true){
+			b1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					Rouge.setValue(c1.getR());
+					Vert.setValue(c1.getV());
+					Bleu.setValue(c1.getB());
+					fenetre.revalidate();
+					fenetre.repaint();
+				}
+			});
+		}
 		
 		
 		pane1.setPreferredSize(new Dimension(500,300));
@@ -320,6 +365,17 @@ public class Interface_graphique implements MouseListener {
 		pane3.add(c18);
 		pane3.add(c19);
 		pane3.add(c20);
+		
+		c1.add(b1);
+		c2.add(b2);
+		c3.add(b3);
+		c4.add(b4);
+		c5.add(b5);
+		c6.add(b6);
+		c7.add(b7);
+		c8.add(b8);
+		c9.add(b9);
+		c10.add(b10);
 		
 		c11.setAlignmentX(10);
 		c11.setAlignmentY(50);
