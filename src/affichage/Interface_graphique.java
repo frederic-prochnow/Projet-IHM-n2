@@ -176,34 +176,34 @@ public class Interface_graphique implements MouseListener {
 		c10 = new Case(150,110,190);
 		c10.setPreferredSize(new Dimension(110,100));
 		c10.setVisible(false);
-		c11 = new Case(84,96,96);
+		c11 = new Case(c1.getGris(),c1.getGris(),c1.getGris()); 
 		c11.setPreferredSize(new Dimension(110,100));
 		c11.setVisible(false);
-		c12 = new Case(96,84,96);
+		c12 = new Case(c2.getGris(),c2.getGris(),c2.getGris()); 
 		c12.setPreferredSize(new Dimension(110,100));
 		c12.setVisible(false);
-		c13 = new Case(96,96,84);
+		c13 = new Case(c3.getGris(),c3.getGris(),c3.getGris()); 
 		c13.setPreferredSize(new Dimension(110,100));
 		c13.setVisible(false);
-		c14 = new Case(90,96,96);
+		c14 = new Case(c4.getGris(),c4.getGris(),c4.getGris()); 
 		c14.setPreferredSize(new Dimension(110,100));
 		c14.setVisible(false);
-		c15 = new Case(96,90,96);
+		c15 = new Case(c5.getGris(),c5.getGris(),c5.getGris()); 
 		c15.setPreferredSize(new Dimension(110,100));
 		c15.setVisible(false);
-		c16 = new Case(96,96,90);
+		c16 = new Case(c6.getGris(),c6.getGris(),c6.getGris()); 
 		c16.setPreferredSize(new Dimension(110,100));
 		c16.setVisible(false);
-		c17 = new Case(87,96,96);
+		c17 = new Case(c7.getGris(),c7.getGris(),c7.getGris()); 
 		c17.setPreferredSize(new Dimension(110,100));
 		c17.setVisible(false);
-		c18 = new Case(96,87,96);
+		c18 = new Case(c8.getGris(),c8.getGris(),c8.getGris()); 
 		c18.setPreferredSize(new Dimension(110,100));
 		c18.setVisible(false);
-		c19 = new Case(96,96,87);
+		c19 = new Case(c9.getGris(),c9.getGris(),c9.getGris()); 
 		c19.setPreferredSize(new Dimension(110,100));
 		c19.setVisible(false);
-		c20 = new Case(89,91,87);
+		c20 = new Case(c10.getGris(),c10.getGris(),c10.getGris()); 
 		c20.setPreferredSize(new Dimension(110,100));
 		c20.setVisible(false);
 		nbvoulues = Integer.parseInt(Interface_graphique.NbCouleurs.getSelectedItem().toString());
@@ -242,6 +242,7 @@ public class Interface_graphique implements MouseListener {
 		});
 		JButton Manuel1 = new JButton("Manuel");
 		Manuel1.setPreferredSize(new Dimension(125,75));
+		
 		
 		final JLabel labelRouge = new JLabel("" + Rouge.getValue());
 		final JLabel labelBleu = new JLabel("" + Bleu.getValue());
@@ -367,7 +368,7 @@ public class Interface_graphique implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		Case c = new Case(Rouge.getValue(),Bleu.getValue(),Vert.getValue());  
 		
 	}
 
