@@ -29,6 +29,15 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 public class Interface_graphique implements MouseListener {
+	
+	final JSlider Rouge = new JSlider(SwingConstants.HORIZONTAL,0,255,100);
+	final JSlider Bleu = new JSlider(SwingConstants.HORIZONTAL,0,255,125);
+	final JSlider Vert = new JSlider(SwingConstants.HORIZONTAL,0,255,150);
+	Integer nbvoulues;
+	static JComboBox NbCouleurs;
+	JFrame fenetre;
+	Case c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20;
+	
 	/**
 	 * @return le rouge
 	 */
@@ -51,16 +60,72 @@ public class Interface_graphique implements MouseListener {
 	public JSlider getVert() {
 		return Vert;
 	}
-
-
-	final JSlider Rouge = new JSlider(SwingConstants.HORIZONTAL,0,255,100);
-	final JSlider Bleu = new JSlider(SwingConstants.HORIZONTAL,0,255,125);
-	final JSlider Vert = new JSlider(SwingConstants.HORIZONTAL,0,255,150);
-	Integer nbvoulues;
-	static JComboBox NbCouleurs;
-	JFrame fenetre;
-	Case c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,c11,c12,c13,c14,c15,c16,c17,c18,c19,c20;
 	
+	public void rafraichisement_couleur() {
+		nbvoulues = Integer.parseInt(Interface_graphique.NbCouleurs.getSelectedItem().toString());
+		 c1.setVisible(false);
+		 c2.setVisible(false);
+		 c3.setVisible(false);
+		 c4.setVisible(false);
+		 c5.setVisible(false);
+		 c6.setVisible(false);
+		 c7.setVisible(false);
+		 c8.setVisible(false);
+		 c9.setVisible(false);
+		 c10.setVisible(false);
+		 c11.setVisible(false);
+		 c12.setVisible(false);
+		 c13.setVisible(false);
+		 c14.setVisible(false);
+		 c15.setVisible(false);
+		 c16.setVisible(false);
+		 c17.setVisible(false);
+		 c18.setVisible(false);
+		 c19.setVisible(false);
+		 c20.setVisible(false);
+		 if(1<=nbvoulues){
+				c1.setVisible(true);
+				c11.setVisible(true);
+			}
+			if(2<=nbvoulues){
+				c2.setVisible(true);
+				c12.setVisible(true);
+			}
+			if(3<=nbvoulues){
+				c3.setVisible(true);
+				c13.setVisible(true);
+			}
+			if(4<=nbvoulues){
+				c4.setVisible(true);
+				c14.setVisible(true);
+			}
+			if(5<=nbvoulues){
+				c5.setVisible(true);
+				c15.setVisible(true);
+			}
+			if(6<=nbvoulues){
+				c6.setVisible(true);
+				c16.setVisible(true);
+			}
+			if(7<=nbvoulues){
+				c7.setVisible(true);
+				c17.setVisible(true);
+			}
+			if(8<=nbvoulues){
+				c8.setVisible(true);
+				c18.setVisible(true);
+			}
+			if(9<=nbvoulues){
+				c9.setVisible(true);
+				c19.setVisible(true);
+			}
+			if(10<=nbvoulues){
+				c10.setVisible(true);
+				c20.setVisible(true);
+			}
+			fenetre.revalidate();
+			fenetre.repaint();
+	}
 	public Interface_graphique() {	
 		JLabel label1;
 		JLabel slider1;
@@ -70,8 +135,12 @@ public class Interface_graphique implements MouseListener {
 		String[] chiffre = new String[]{"10","9","8","7","6","5","4","3","2","1"};
 		JMenuItem ouvrir = new JMenuItem("ouvrir");
 		JMenuItem fermer = new JMenuItem("fermer");
+		fermer.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent arg0) {
+				fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE) ;
+			}
+		});
 		NbCouleurs = new JComboBox(chiffre);
-		//nbvoulues = Integer.parseInt(NbCouleurs.getSelectedItem().toString());
 		fenetre = new JFrame("Projet IHM");
 		JMenuBar menu;
 		label1 = new JLabel("Nb de couleur voulues");
@@ -138,78 +207,10 @@ public class Interface_graphique implements MouseListener {
 		c20.setPreferredSize(new Dimension(110,100));
 		c20.setVisible(false);
 		nbvoulues = Integer.parseInt(Interface_graphique.NbCouleurs.getSelectedItem().toString());
-		//nbvoulues = 10;
-		/*NbCouleurs.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e){
-				nbvoulues = Integer.parseInt(Interface_graphique.NbCouleurs.getSelectedItem().toString());
-			}
-		});*/
 		NbCouleurs.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) 
 			   { 
-				 nbvoulues = Integer.parseInt(Interface_graphique.NbCouleurs.getSelectedItem().toString());
-				 c1.setVisible(false);
-				 c2.setVisible(false);
-				 c3.setVisible(false);
-				 c4.setVisible(false);
-				 c5.setVisible(false);
-				 c6.setVisible(false);
-				 c7.setVisible(false);
-				 c8.setVisible(false);
-				 c9.setVisible(false);
-				 c10.setVisible(false);
-				 c11.setVisible(false);
-				 c12.setVisible(false);
-				 c13.setVisible(false);
-				 c14.setVisible(false);
-				 c15.setVisible(false);
-				 c16.setVisible(false);
-				 c17.setVisible(false);
-				 c18.setVisible(false);
-				 c19.setVisible(false);
-				 c20.setVisible(false);
-				 if(1<=nbvoulues){
-						c1.setVisible(true);
-						c11.setVisible(true);
-					}
-					if(2<=nbvoulues){
-						c2.setVisible(true);
-						c12.setVisible(true);
-					}
-					if(3<=nbvoulues){
-						c3.setVisible(true);
-						c13.setVisible(true);
-					}
-					if(4<=nbvoulues){
-						c4.setVisible(true);
-						c14.setVisible(true);
-					}
-					if(5<=nbvoulues){
-						c5.setVisible(true);
-						c15.setVisible(true);
-					}
-					if(6<=nbvoulues){
-						c6.setVisible(true);
-						c16.setVisible(true);
-					}
-					if(7<=nbvoulues){
-						c7.setVisible(true);
-						c17.setVisible(true);
-					}
-					if(8<=nbvoulues){
-						c8.setVisible(true);
-						c18.setVisible(true);
-					}
-					if(9<=nbvoulues){
-						c9.setVisible(true);
-						c19.setVisible(true);
-					}
-					if(10<=nbvoulues){
-						c10.setVisible(true);
-						c20.setVisible(true);
-					}
-					fenetre.revalidate();
-					fenetre.repaint();
+				rafraichisement_couleur();
 			 } 
 		});
 		
@@ -234,11 +235,13 @@ public class Interface_graphique implements MouseListener {
 
 		JButton Automatique1 = new JButton("Automatique");
 		Automatique1.setPreferredSize(new Dimension(125,75));
+		Automatique1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				rafraichisement_couleur();
+			}
+		});
 		JButton Manuel1 = new JButton("Manuel");
 		Manuel1.setPreferredSize(new Dimension(125,75));
-		/*NbCouleurs.addActionListener(new ActionListener());
-		Automatique1.addActionListener(new ActionListener());
-		Manuel1.addActionListener(new ActionListener());*/
 		
 		final JLabel labelRouge = new JLabel("" + Rouge.getValue());
 		final JLabel labelBleu = new JLabel("" + Bleu.getValue());
