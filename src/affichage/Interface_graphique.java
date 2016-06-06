@@ -213,47 +213,6 @@ public class Interface_graphique implements MouseListener {
 			 } 
 		});
 		
-		if(1<=nbvoulues){
-			c1.setVisible(true);
-			c11.setVisible(true);
-		}
-		if(2<=nbvoulues){
-			c2.setVisible(true);
-			c12.setVisible(true);
-		}
-		if(3<=nbvoulues){
-			c3.setVisible(true);
-			c13.setVisible(true);
-		}
-		if(4<=nbvoulues){
-			c4.setVisible(true);
-			c14.setVisible(true);
-		}
-		if(5<=nbvoulues){
-			c5.setVisible(true);
-			c15.setVisible(true);
-		}
-		if(6<=nbvoulues){
-			c6.setVisible(true);
-			c16.setVisible(true);
-		}
-		if(7<=nbvoulues){
-			c7.setVisible(true);
-			c17.setVisible(true);
-		}
-		if(8<=nbvoulues){
-			c8.setVisible(true);
-			c18.setVisible(true);
-		}
-		if(9<=nbvoulues){
-			c9.setVisible(true);
-			c19.setVisible(true);
-		}
-		if(10<=nbvoulues){
-			c10.setVisible(true);
-			c20.setVisible(true);
-		}
-		
 		JPanel pane1;
 		JPanel pane2;
 		JPanel pane3;
