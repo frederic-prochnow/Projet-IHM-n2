@@ -34,34 +34,11 @@ public class Couleurchoisie extends JPanel {
 			text.setForeground(Color.blue);
 		}
 		text.setFont(new Font("Monospaced", Font.BOLD, 12));
-		text.addMouseListener(new MouseAdapter() {
-
-			public void mouseExited(MouseEvent arg0) {
-				Couleurchoisie.this
-						.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-			}
-
-			public void mouseEntered(MouseEvent arg0) {
-				Couleurchoisie.this.setCursor(new Cursor(Cursor.HAND_CURSOR));
-			}
-
-			public void mouseClicked(MouseEvent arg0) {
-				renitialiseCouleur();
-				text.setForeground(Color.blue);
-				Fenetre.indexCourant=index;
-			}
-		});
 
 		this.add(hexa);
 		hexa.setBounds(110, 4, 60, 20);
 		hexa.setEditable(false);
-	}
-
-	private void renitialiseCouleur() {
-		for (int i = 0; i < 10; i++) {
-			Fenetre.listeCouleur.get(i).getText().setForeground(Color.darkGray);
 		}
-	}
 
 	public void paintComponent(Graphics g) {
 		super.paintComponents(g);

@@ -13,7 +13,6 @@ public class Case extends JPanel {
 
 	private static final long serialVersionUID = -7407558281977901559L;
 	private int r, v, b;
-	private String hexa = "r";
 	private int gris;
 	private boolean visible;
 
@@ -29,28 +28,6 @@ public class Case extends JPanel {
 		this.visible = visible;
 	}
 
-	public Case() {
-		super();
-		this.visible = true;
-		this.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) {
-				Fenetre.listeCouleur.get(Fenetre.indexCourant).getHexa()
-						.setText(hexa);
-				Fenetre.listeCouleur.get(Fenetre.indexCourant).setCouleur(
-						new Color(r, v, b));
-				Fenetre.listeCouleur.get(Fenetre.indexCourant).setGris(
-						new Color(gris, gris, gris));
-				Fenetre.listeCouleur.get(Fenetre.indexCourant).repaint();
-				Fenetre.codeR.setText("R = " + r);
-				Fenetre.codeRValue.setValue(r);
-				Fenetre.codeV.setText("V = " + v);
-				Fenetre.codeVValue.setValue(v);
-				Fenetre.codeB.setText("B = " + b);
-				Fenetre.codeBValue.setValue(b);
-			}
-		});
-	}
-
 	/**
 	 * Constructeur
 	 * 
@@ -60,11 +37,9 @@ public class Case extends JPanel {
 	 * @param hexa
 	 */
 	public Case(int r, int v, int b) {
-		this();
 		this.r = r;
 		this.v = v;
 		this.b = b;
-		this.hexa = Convert(r, v, b);
 		this.gris = (int) (0.3 * r + 0.59 * v + 0.11 * b);
 	}
 	

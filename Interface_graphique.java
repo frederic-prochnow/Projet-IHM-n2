@@ -25,6 +25,8 @@ import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import javafx.event.ActionEvent;
+
 public class Interface_graphique implements MouseListener {
 	final JSlider Rouge = new JSlider(SwingConstants.HORIZONTAL,0,255,100);
 	final JSlider Bleu = new JSlider(SwingConstants.HORIZONTAL,0,255,125);
@@ -47,6 +49,7 @@ public class Interface_graphique implements MouseListener {
 		
 		Case c1 = new Case(255,0,0);
 		c1.setPreferredSize(new Dimension(60,60));
+		c1.setVisible(true);
 		Case c2 = new Case(0,255,0);
 		c2.setPreferredSize(new Dimension(110,100));
 		c2.setVisible(true);
@@ -55,38 +58,55 @@ public class Interface_graphique implements MouseListener {
 		c3.setVisible(true);
 		Case c4 = new Case(125,0,0);
 		c4.setPreferredSize(new Dimension(110,100));
+		c4.setVisible(true);
 		Case c5 = new Case(0,125,0);
 		c5.setPreferredSize(new Dimension(110,100));
+		c5.setVisible(true);
 		Case c6 = new Case(0,0,125);
 		c6.setPreferredSize(new Dimension(110,100));
+		c6.setVisible(true);
 		Case c7 = new Case(190,0,0);
 		c7.setPreferredSize(new Dimension(110,100));
+		c7.setVisible(true);
 		Case c8 = new Case(0,190,0);
 		c8.setPreferredSize(new Dimension(110,100));
+		c8.setVisible(true);
 		Case c9 = new Case(0,0,190);
 		c9.setPreferredSize(new Dimension(110,100));
+		c9.setVisible(true);
 		Case c10 = new Case(150,110,190);
 		c10.setPreferredSize(new Dimension(110,100));
-		Case c11 = new Case();
+		c10.setVisible(true);
+		Case c11 = new Case(c1.getGris(),c1.getGris(),c1.getGris());
 		c11.setPreferredSize(new Dimension(110,100));
-		Case c12 = new Case();
+		c11.setVisible(true);
+		Case c12 = new Case(c2.getGris(),c2.getGris(),c2.getGris());
 		c12.setPreferredSize(new Dimension(110,100));
-		Case c13 = new Case();
+		c12.setVisible(true);
+		Case c13 = new Case(c3.getGris(),c3.getGris(),c3.getGris());
 		c13.setPreferredSize(new Dimension(110,100));
-		Case c14 = new Case();
+		c13.setVisible(true);
+		Case c14 = new Case(c4.getGris(),c4.getGris(),c4.getGris());
 		c14.setPreferredSize(new Dimension(110,100));
-		Case c15 = new Case();
+		c14.setVisible(true);
+		Case c15 = new Case(c5.getGris(),c5.getGris(),c5.getGris());
 		c15.setPreferredSize(new Dimension(110,100));
-		Case c16 = new Case();
+		c15.setVisible(true);
+		Case c16 = new Case(c6.getGris(),c6.getGris(),c6.getGris());
 		c16.setPreferredSize(new Dimension(110,100));
-		Case c17 = new Case();
+		c16.setVisible(true);
+		Case c17 = new Case(c7.getGris(),c7.getGris(),c7.getGris());
 		c17.setPreferredSize(new Dimension(110,100));
-		Case c18 = new Case();
+		c17.setVisible(true);
+		Case c18 = new Case(c8.getGris(),c8.getGris(),c8.getGris());
 		c18.setPreferredSize(new Dimension(110,100));
-		Case c19 = new Case();
+		c18.setVisible(true);
+		Case c19 = new Case(c9.getGris(),c9.getGris(),c9.getGris());
 		c19.setPreferredSize(new Dimension(110,100));
-		Case c20 = new Case();
+		c19.setVisible(true);
+		Case c20 = new Case(c10.getGris(),c10.getGris(),c10.getGris());
 		c20.setPreferredSize(new Dimension(110,100));
+		c20.setVisible(true);
 		
 		JPanel pane1;
 		JPanel pane2;
@@ -111,9 +131,17 @@ public class Interface_graphique implements MouseListener {
 		Automatique1.setPreferredSize(new Dimension(125,75));
 		JButton Manuel1 = new JButton("Manuel");
 		Manuel1.setPreferredSize(new Dimension(125,75));
-		/*NbCouleurs.addActionListener(new ActionListener());
-		Automatique1.addActionListener(new ActionListener());
-		Manuel1.addActionListener(new ActionListener());*/
+		
+		NbCouleurs.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				/*if(e){
+					
+				}*/
+				
+			}
+		});
 		
 		final JLabel labelRouge = new JLabel("" + Rouge.getValue());
 		final JLabel labelBleu = new JLabel("" + Bleu.getValue());
@@ -211,34 +239,37 @@ public class Interface_graphique implements MouseListener {
 		fenetre.setVisible(true);
 
 	}
-
-
-	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-
-	}
-
-
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		Case c = new Case(Rouge.getValue(),Bleu.getValue(),Vert.getValue()); 
+	}
+
+	private void repaint() {
+		
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
