@@ -164,12 +164,15 @@ public class Interface_graphique implements MouseListener {
 			public void actionPerformed(ActionEvent arg0) {
 				javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			        public void run() {
-			        	JFrame fenetre = new JFrame("JFrame");
-			 		    fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			 		    fenetre.setPreferredSize(new Dimension(100,50));
-			 		    fenetre.pack();
-			 		    fenetre.add(new JLabel("Version 2016"));
-			 		    fenetre.setVisible(true);
+			        	JFrame fenetre2 = new JFrame("JFrame");
+			 		    fenetre2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			 		    fenetre2.setPreferredSize(new Dimension(400,100));
+			 		    fenetre2.setLocation(250,250);
+			 		    fenetre2.pack();
+			 		    fenetre2.add(new JLabel("------Version 2016------"));
+			 		    fenetre2.add(new JLabel("------Version 2016------ Par Frederic et Robin "));
+			 		    fenetre2.setVisible(true);
+			 		    fenetre2.setLocation(250,250);
 			        }
 			    });
 			}
