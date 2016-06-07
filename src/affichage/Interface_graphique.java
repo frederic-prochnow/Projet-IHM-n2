@@ -113,26 +113,27 @@ public class Interface_graphique implements MouseListener {
 	public void action_de_changement(JButton b,final Case a,final Case c) {
 		b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Rouge.setValue(a.getR());
-				Vert.setValue(a.getV());
-				Bleu.setValue(a.getB());
+				//Rouge.setValue(a.getR());
+				//Vert.setValue(a.getV());
+				//Bleu.setValue(a.getB());
 				Rouge.addChangeListener(new ChangeListener() {
 					public void stateChanged(ChangeEvent arg0) {
-						if(manuelb == true)Rouge.setValue(a.getR());
+						if(manuelb != true)Rouge.setValue(a.getR());
 					}
 				});
 				Vert.addChangeListener(new ChangeListener() {
 					public void stateChanged(ChangeEvent arg0) {
-						if(manuelb == true)Vert.setValue(a.getV());
+						if(manuelb != true)Vert.setValue(a.getV());
 					}
 				});
 				Bleu.addChangeListener(new ChangeListener() {
 					public void stateChanged(ChangeEvent arg0) {
-						if(manuelb == true)Bleu.setValue(a.getB());
+						if(manuelb != true)Bleu.setValue(a.getB());
 					}
 				});
 				a.setCase(Rouge.getValue(), Vert.getValue(), Bleu.getValue());
-				c.setCase(a.getGris(), a.getGris(), a.getGris());
+				Case d = new Case(Rouge.getValue(), Vert.getValue(), Bleu.getValue());
+				c.setCase(d.getGris(), d.getGris(), d.getGris());
 				fenetre.revalidate();
 				fenetre.repaint();
 			}
@@ -165,11 +166,7 @@ public class Interface_graphique implements MouseListener {
 			        public void run() {
 			        	JFrame fenetre = new JFrame("JFrame");
 			 		    fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			 		    //fenetre.getContentPane().add(emptyLabel, BorderLayout.CENTER);
 			 		    fenetre.setPreferredSize(new Dimension(100,50));
-			 		    fenetre.setLocation(250,250);
-			 		    //empeche le redimensionnement de la fenetre
-			 		    fenetre.setResizable(false);
 			 		    fenetre.pack();
 			 		    fenetre.add(new JLabel("Version 2016"));
 			 		    fenetre.setVisible(true);
