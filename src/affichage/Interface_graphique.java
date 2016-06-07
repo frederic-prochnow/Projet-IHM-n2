@@ -63,70 +63,80 @@ public class Interface_graphique implements MouseListener {
 		return Vert;
 	}
 	
+	public void visibilite_true(int i,Case a,Case b) {
+		if(i<=nbvoulues){
+			a.setVisible(true);
+			b.setVisible(true);
+		}
+	}
+	
 	public void rafraichisement_couleur() {
 		nbvoulues = Integer.parseInt(Interface_graphique.NbCouleurs.getSelectedItem().toString());
-		 c1.setVisible(false);
-		 c2.setVisible(false);
-		 c3.setVisible(false);
-		 c4.setVisible(false);
-		 c5.setVisible(false);
-		 c6.setVisible(false);
-		 c7.setVisible(false);
-		 c8.setVisible(false);
-		 c9.setVisible(false);
-		 c10.setVisible(false);
-		 c11.setVisible(false);
-		 c12.setVisible(false);
-		 c13.setVisible(false);
-		 c14.setVisible(false);
-		 c15.setVisible(false);
-		 c16.setVisible(false);
-		 c17.setVisible(false);
-		 c18.setVisible(false);
-		 c19.setVisible(false);
-		 c20.setVisible(false);
-		 if(1<=nbvoulues){
-				c1.setVisible(true);
-				c11.setVisible(true);
+		c1.setVisible(false);		c2.setVisible(false);	c3.setVisible(false);
+		c4.setVisible(false);		c5.setVisible(false);	c6.setVisible(false);
+		c7.setVisible(false);		c8.setVisible(false);	c9.setVisible(false);
+		c10.setVisible(false);
+		c11.setVisible(false);		c12.setVisible(false);	c13.setVisible(false);
+		c14.setVisible(false);		c15.setVisible(false);	c16.setVisible(false);
+		c17.setVisible(false);		c18.setVisible(false);	c19.setVisible(false);
+		c20.setVisible(false);
+		visibilite_true(1,c1,c11);		visibilite_true(2,c2,c12);
+		visibilite_true(3,c3,c13);		visibilite_true(4,c4,c14);
+		visibilite_true(5,c5,c15);		visibilite_true(6,c6,c16);
+		visibilite_true(7,c7,c17);		visibilite_true(8,c8,c18);
+		visibilite_true(9,c9,c19);		visibilite_true(10,c10,c20);
+		fenetre.revalidate();
+		fenetre.repaint();
+	}
+	public void creation_case() {
+		c1 = new Case(255,0,0);		c2 = new Case(0,255,0);
+		c3 = new Case(0,0,255);		c4 = new Case(125,0,0);
+		c5 = new Case(0,125,0);		c6 = new Case(0,0,125);
+		c7 = new Case(190,0,0);		c8 = new Case(0,190,0);
+		c9 = new Case(0,0,190);		c10 = new Case(150,110,190);
+		c11 = new Case(c1.getGris(),c1.getGris(),c1.getGris());
+		c12 = new Case(c2.getGris(),c2.getGris(),c2.getGris());
+		c13 = new Case(c3.getGris(),c3.getGris(),c3.getGris());
+		c14 = new Case(c4.getGris(),c4.getGris(),c4.getGris());
+		c15 = new Case(c5.getGris(),c5.getGris(),c5.getGris());
+		c16 = new Case(c6.getGris(),c6.getGris(),c6.getGris());
+		c17 = new Case(c7.getGris(),c7.getGris(),c7.getGris());
+		c18 = new Case(c8.getGris(),c8.getGris(),c8.getGris());
+		c19 = new Case(c9.getGris(),c9.getGris(),c9.getGris()); 
+		c20 = new Case(c10.getGris(),c10.getGris(),c10.getGris());
+	}
+	public void aide_creation_case(Case a) {
+		//a = new Case(r,v,b);
+		a.setPreferredSize(new Dimension(110,100));
+		a.setVisible(false);
+	}
+	public void action_de_changement(JButton b,final Case a,final Case c) {
+		b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Rouge.setValue(a.getR());
+				Vert.setValue(a.getV());
+				Bleu.setValue(a.getB());
+				Rouge.addChangeListener(new ChangeListener() {
+					public void stateChanged(ChangeEvent arg0) {
+						if(manuelb == true)Rouge.setValue(a.getR());
+					}
+				});
+				Vert.addChangeListener(new ChangeListener() {
+					public void stateChanged(ChangeEvent arg0) {
+						if(manuelb == true)Vert.setValue(a.getV());
+					}
+				});
+				Bleu.addChangeListener(new ChangeListener() {
+					public void stateChanged(ChangeEvent arg0) {
+						if(manuelb == true)Bleu.setValue(a.getB());
+					}
+				});
+				a.setCase(Rouge.getValue(), Vert.getValue(), Bleu.getValue());
+				c.setCase(a.getGris(), a.getGris(), a.getGris());
+				fenetre.revalidate();
+				fenetre.repaint();
 			}
-			if(2<=nbvoulues){
-				c2.setVisible(true);
-				c12.setVisible(true);
-			}
-			if(3<=nbvoulues){
-				c3.setVisible(true);
-				c13.setVisible(true);
-			}
-			if(4<=nbvoulues){
-				c4.setVisible(true);
-				c14.setVisible(true);
-			}
-			if(5<=nbvoulues){
-				c5.setVisible(true);
-				c15.setVisible(true);
-			}
-			if(6<=nbvoulues){
-				c6.setVisible(true);
-				c16.setVisible(true);
-			}
-			if(7<=nbvoulues){
-				c7.setVisible(true);
-				c17.setVisible(true);
-			}
-			if(8<=nbvoulues){
-				c8.setVisible(true);
-				c18.setVisible(true);
-			}
-			if(9<=nbvoulues){
-				c9.setVisible(true);
-				c19.setVisible(true);
-			}
-			if(10<=nbvoulues){
-				c10.setVisible(true);
-				c20.setVisible(true);
-			}
-			fenetre.revalidate();
-			fenetre.repaint();
+		});
 	}
 	public Interface_graphique() {	
 		JLabel label1;
@@ -135,79 +145,37 @@ public class Interface_graphique implements MouseListener {
 		JLabel slider3;
 		ArrayList<JMenuItem> item = new ArrayList<>();
 		String[] chiffre = new String[]{"10","9","8","7","6","5","4","3","2","1"};
-		JMenuItem ouvrir = new JMenuItem("ouvrir");
-		JMenuItem fermer = new JMenuItem("fermer");
-		fermer.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE) ;
+		JMenuItem ouvrir = new JMenuItem("Nouveau");
+		ouvrir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				nbvoulues = 0;
+				rafraichisement_couleur();
 			}
 		});
+		JMenuItem fermer = new JMenuItem("Fermer");
+		fermer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				fenetre.dispose();	
+			}
+		});
+		// BOUTON AIDE -->> OUVERTURE DU FICHIER DE PROJET
 		NbCouleurs = new JComboBox(chiffre);
 		fenetre = new JFrame("Projet IHM");
 		JMenuBar menu;
 		label1 = new JLabel("Nb de couleur voulues");
 		GridLayout cases = new GridLayout(2,10);
 		
-		c1 = new Case(255,0,0);
-		c1.setPreferredSize(new Dimension(110,100));
-		c1.setVisible(false);
-		c2 = new Case(0,255,0);
-		c2.setPreferredSize(new Dimension(110,100));
-		c2.setVisible(false);
-		c3 = new Case(0,0,255);
-		c3.setPreferredSize(new Dimension(110,100));
-		c3.setVisible(false);
-		c4 = new Case(125,0,0);
-		c4.setPreferredSize(new Dimension(110,100));
-		c4.setVisible(false);
-		c5 = new Case(0,125,0);
-		c5.setPreferredSize(new Dimension(110,100));
-		c5.setVisible(false);
-		c6 = new Case(0,0,125);
-		c6.setPreferredSize(new Dimension(110,100));
-		c6.setVisible(false);
-		c7 = new Case(190,0,0);
-		c7.setPreferredSize(new Dimension(110,100));
-		c7.setVisible(false);
-		c8 = new Case(0,190,0);
-		c8.setPreferredSize(new Dimension(110,100));
-		c8.setVisible(false);
-		c9 = new Case(0,0,190);
-		c9.setPreferredSize(new Dimension(110,100));
-		c9.setVisible(false);
-		c10 = new Case(150,110,190);
-		c10.setPreferredSize(new Dimension(110,100));
-		c10.setVisible(false);
-		c11 = new Case(c1.getGris(),c1.getGris(),c1.getGris()); 
-		c11.setPreferredSize(new Dimension(110,100));
-		c11.setVisible(false);
-		c12 = new Case(c2.getGris(),c2.getGris(),c2.getGris()); 
-		c12.setPreferredSize(new Dimension(110,100));
-		c12.setVisible(false);
-		c13 = new Case(c3.getGris(),c3.getGris(),c3.getGris()); 
-		c13.setPreferredSize(new Dimension(110,100));
-		c13.setVisible(false);
-		c14 = new Case(c4.getGris(),c4.getGris(),c4.getGris()); 
-		c14.setPreferredSize(new Dimension(110,100));
-		c14.setVisible(false);
-		c15 = new Case(c5.getGris(),c5.getGris(),c5.getGris()); 
-		c15.setPreferredSize(new Dimension(110,100));
-		c15.setVisible(false);
-		c16 = new Case(c6.getGris(),c6.getGris(),c6.getGris()); 
-		c16.setPreferredSize(new Dimension(110,100));
-		c16.setVisible(false);
-		c17 = new Case(c7.getGris(),c7.getGris(),c7.getGris()); 
-		c17.setPreferredSize(new Dimension(110,100));
-		c17.setVisible(false);
-		c18 = new Case(c8.getGris(),c8.getGris(),c8.getGris()); 
-		c18.setPreferredSize(new Dimension(110,100));
-		c18.setVisible(false);
-		c19 = new Case(c9.getGris(),c9.getGris(),c9.getGris()); 
-		c19.setPreferredSize(new Dimension(110,100));
-		c19.setVisible(false);
-		c20 = new Case(c10.getGris(),c10.getGris(),c10.getGris()); 
-		c20.setPreferredSize(new Dimension(110,100));
-		c20.setVisible(false);
+		creation_case();
+		aide_creation_case(c1);		aide_creation_case(c2);
+		aide_creation_case(c3);		aide_creation_case(c4);
+		aide_creation_case(c5);		aide_creation_case(c6);
+		aide_creation_case(c7);		aide_creation_case(c8);
+		aide_creation_case(c9);		aide_creation_case(c10);
+		aide_creation_case(c11);	aide_creation_case(c12);
+		aide_creation_case(c13);	aide_creation_case(c14);
+		aide_creation_case(c15);	aide_creation_case(c16);
+		aide_creation_case(c17);	aide_creation_case(c18);
+		aide_creation_case(c19);	aide_creation_case(c20);
 		nbvoulues = Integer.parseInt(Interface_graphique.NbCouleurs.getSelectedItem().toString());
 		NbCouleurs.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) 
@@ -302,31 +270,16 @@ public class Interface_graphique implements MouseListener {
 			}
 		});
 		
-		if(manuelb == true){
-			b1.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent arg0) {
-					Rouge.addChangeListener(new ChangeListener() {
-						public void stateChanged(ChangeEvent arg0) {
-							Rouge.setValue(c1.getR());
-						}
-					});
-					Vert.addChangeListener(new ChangeListener() {
-						public void stateChanged(ChangeEvent arg0) {
-							Vert.setValue(c1.getR());
-						}
-					});
-					Bleu.addChangeListener(new ChangeListener() {
-						public void stateChanged(ChangeEvent arg0) {
-							Bleu.setValue(c1.getR());
-						}
-					});
-					fenetre.revalidate();
-					fenetre.repaint();
-					c1.setCase(Rouge.getValue(), Vert.getValue(), Bleu.getValue());
-				}
-			});
-		}
-		
+		action_de_changement(b1,c1,c11);
+		action_de_changement(b2,c2,c12);
+		action_de_changement(b3,c3,c13);
+		action_de_changement(b4,c4,c14);
+		action_de_changement(b5,c5,c15);
+		action_de_changement(b6,c6,c16);
+		action_de_changement(b7,c7,c17);
+		action_de_changement(b8,c8,c18);
+		action_de_changement(b9,c9,c19);
+		action_de_changement(b10,c10,c20);
 		
 		pane1.setPreferredSize(new Dimension(500,300));
 		pane2.setPreferredSize(new Dimension(400,300));
@@ -409,39 +362,24 @@ public class Interface_graphique implements MouseListener {
 		fenetre.setVisible(true);
 
 	}
-
-
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
-
-
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
-
-
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
-
-
 	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 
 	}
-
-
-	@Override
 	public void mouseClicked(MouseEvent e) {
 		Case c = new Case(Rouge.getValue(),Bleu.getValue(),Vert.getValue());  
 		
 	}
-
-
-
-
 }
