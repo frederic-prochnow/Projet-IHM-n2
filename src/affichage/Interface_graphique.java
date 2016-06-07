@@ -158,7 +158,25 @@ public class Interface_graphique implements MouseListener {
 				fenetre.dispose();	
 			}
 		});
-		// BOUTON AIDE -->> OUVERTURE DU FICHIER DE PROJET
+		JMenuItem aproposde = new JMenuItem("A propos de");
+		fermer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				javax.swing.SwingUtilities.invokeLater(new Runnable() {
+			        public void run() {
+			        	JFrame fenetre = new JFrame("JFrame");
+			 		    fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			 		    //fenetre.getContentPane().add(emptyLabel, BorderLayout.CENTER);
+			 		    fenetre.setPreferredSize(new Dimension(100,50));
+			 		    fenetre.setLocation(250,250);
+			 		    //empeche le redimensionnement de la fenetre
+			 		    fenetre.setResizable(false);
+			 		    fenetre.pack();
+			 		    fenetre.add(new JLabel("Version 2016"));
+			 		    fenetre.setVisible(true);
+			        }
+			    });
+			}
+		});
 		NbCouleurs = new JComboBox(chiffre);
 		fenetre = new JFrame("Projet IHM");
 		JMenuBar menu;
@@ -199,6 +217,7 @@ public class Interface_graphique implements MouseListener {
 		
 		Fichier.add(ouvrir);
 		Fichier.add(fermer);
+		Aide.add(aproposde);
 		menu.add(Fichier);
 		menu.add(Aide);
 		fenetre.setLayout(new BorderLayout());
